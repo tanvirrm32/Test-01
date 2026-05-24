@@ -1,0 +1,6 @@
+{
+  "name": "Sterling Creative Agency",
+  "description": "A premium dark-themed graphic designer & branding agency website featuring responsive portfolios, before/after comparisons, active journal logs, and dynamic administrative panels.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

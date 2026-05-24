@@ -1,0 +1,196 @@
+{
+  "entities": {
+    "PortfolioItem": {
+      "title": "PortfolioItem",
+      "description": "A showcase project of the agency",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string", "enum": ["Branding", "Packaging", "Social Media", "Print Design", "Website UI", "Advertising"] },
+        "imageUrl": { "type": "string" },
+        "client": { "type": "string" },
+        "challenge": { "type": "string" },
+        "process": { "type": "string" },
+        "mockupGallery": { "type": "array" },
+        "feedback": { "type": "string" },
+        "year": { "type": "string" },
+        "tags": { "type": "array" },
+        "industry": { "type": "string" }
+      },
+      "required": ["id", "title", "description", "category", "imageUrl"]
+    },
+    "Service": {
+      "title": "Service",
+      "description": "An agency service offering",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "iconName": { "type": "string" },
+        "price": { "type": "string" },
+        "features": { "type": "array" },
+        "faq": { "type": "array" }
+      },
+      "required": ["id", "title", "description", "price"]
+    },
+    "BlogPost": {
+      "title": "BlogPost",
+      "description": "A blog article written by the agency",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "excerpt": { "type": "string" },
+        "category": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "readTime": { "type": "string" },
+        "author": { "type": "string" },
+        "date": { "type": "string" },
+        "likes": { "type": "number" },
+        "commentsCount": { "type": "number" }
+      },
+      "required": ["id", "title", "content", "category", "imageUrl", "date"]
+    },
+    "Testimonial": {
+      "title": "Testimonial",
+      "description": "Client reviews and feedback",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "company": { "type": "string" },
+        "feedback": { "type": "string" },
+        "rating": { "type": "number" },
+        "imageUrl": { "type": "string" },
+        "videoUrl": { "type": "string" }
+      },
+      "required": ["id", "name", "feedback", "rating"]
+    },
+    "TeamMember": {
+      "title": "TeamMember",
+      "description": "An agency team member profile",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "skills": { "type": "array" },
+        "bio": { "type": "string" },
+        "social": { "type": "object" }
+      },
+      "required": ["id", "name", "role", "imageUrl"]
+    },
+    "Career": {
+      "title": "Career",
+      "description": "A job opening description",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "department": { "type": "string" },
+        "location": { "type": "string" },
+        "type": { "type": "string" },
+        "salary": { "type": "string" },
+        "description": { "type": "string" },
+        "requirements": { "type": "array" }
+      },
+      "required": ["id", "title", "department", "location", "type"]
+    },
+    "ContactSubmission": {
+      "title": "ContactSubmission",
+      "description": "Form submissions from website contacts",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "subject": { "type": "string" },
+        "message": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "message"]
+    },
+    "Appointment": {
+      "title": "Appointment",
+      "description": "Meeting bookings made by users",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "service": { "type": "string" },
+        "dateTime": { "type": "string" },
+        "message": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "service", "dateTime"]
+    },
+    "SiteSettings": {
+      "title": "SiteSettings",
+      "description": "General dynamic content setup for the pages",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "heroTitle": { "type": "string" },
+        "heroSubtitle": { "type": "string" },
+        "aboutText": { "type": "string" },
+        "personalStoryName": { "type": "string" },
+        "personalStoryTitle": { "type": "string" },
+        "personalStoryContent": { "type": "string" },
+        "creativePhilosophy": { "type": "string" },
+        "experienceTimeline": { "type": "array" },
+        "activeAwardsCount": { "type": "number" },
+        "completedProjectsCount": { "type": "number" },
+        "happyClientsCount": { "type": "number" },
+        "yearsExperience": { "type": "number" }
+      },
+      "required": ["id"]
+    }
+  },
+  "firestore": {
+    "portfolio": {
+      "schema": { "$ref": "PortfolioItem" },
+      "description": "Showcase projects collection"
+    },
+    "services": {
+      "schema": { "$ref": "Service" },
+      "description": "Agency services offerings"
+    },
+    "blog": {
+      "schema": { "$ref": "BlogPost" },
+      "description": "Articles and news posts"
+    },
+    "testimonials": {
+      "schema": { "$ref": "Testimonial" },
+      "description": "Client reviews and testimonial feedback"
+    },
+    "team": {
+      "schema": { "$ref": "TeamMember" },
+      "description": "Agency profile team details"
+    },
+    "careers": {
+      "schema": { "$ref": "Career" },
+      "description": "Career openings"
+    },
+    "contact_submissions": {
+      "schema": { "$ref": "ContactSubmission" },
+      "description": "Client inquiries"
+    },
+    "appointments": {
+      "schema": { "$ref": "Appointment" },
+      "description": "Consultation scheduling entries"
+    },
+    "settings": {
+      "schema": { "$ref": "SiteSettings" },
+      "description": "Website customizable content configuration"
+    }
+  }
+}
